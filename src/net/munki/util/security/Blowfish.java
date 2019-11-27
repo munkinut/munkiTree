@@ -37,6 +37,7 @@ public class Blowfish {
 
     private static byte[] crypt(byte[] input, byte[] key, int mode) throws Exception {
 
+    	// TODO : rewrite this next line using javax.crypto
         Provider sunJce = new com.sun.crypto.provider.SunJCE();
         Security.addProvider(sunJce);
          
