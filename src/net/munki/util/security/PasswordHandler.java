@@ -8,6 +8,7 @@ package net.munki.util.security;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 /** Provides an interface to MessageDigest for providing and verifying one way hashes.
  *
@@ -59,8 +60,8 @@ public final class PasswordHandler {
         md.reset();
         byte[] buf = password.getBytes();
         String hash = new String(md.digest(buf));
-        String b64Hash = new sun.misc.BASE64Encoder().encodeBuffer(hash.getBytes());
-        return b64Hash;
+        Base64.Encoder encoder = Base64.getEncoder();
+        return encoder.encodeToString(hash.getBytes());
     }
     
     /** Verifies a password against a hashed password.
