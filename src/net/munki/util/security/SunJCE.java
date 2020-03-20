@@ -102,7 +102,8 @@ public final class SunJCE extends Provider {
     }
     static SecureRandom getRandom() { return SecureRandomHolder.RANDOM; }
 
-    public SunJCE() {
+    @SuppressWarnings("deprecation")
+	public SunJCE() {
         /* We are the "SunJCE" provider */
         super("SunJCE", 1.8d, info);
 
