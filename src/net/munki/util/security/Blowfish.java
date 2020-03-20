@@ -38,7 +38,7 @@ public class Blowfish {
     private static byte[] crypt(byte[] input, byte[] key, int mode) throws Exception {
 
     	// TODO : rewrite this next line using javax.crypto
-        Provider sunJce = new com.sun.crypto.provider.SunJCE();
+        Provider sunJce = new net.munki.util.security.SunJCE();
         Security.addProvider(sunJce);
          
         javax.crypto.KeyGenerator kgen = javax.crypto.KeyGenerator.getInstance("Blowfish");
