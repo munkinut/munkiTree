@@ -164,7 +164,8 @@ public abstract class CustomClassLoader extends ClassLoader {
         };
     }
     
-    private void definePackage(String className) {
+    @SuppressWarnings("deprecation")
+	private void definePackage(String className) {
         
         String packageName = className;
         int index = className.lastIndexOf('.');

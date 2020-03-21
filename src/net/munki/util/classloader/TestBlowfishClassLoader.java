@@ -66,7 +66,8 @@ public class TestBlowfishClassLoader {
                 TestBlowfishClassLoader tcl = new TestBlowfishClassLoader(base, key);
                 @SuppressWarnings("rawtypes")
 				Class myClass = tcl.load(classToLoad);
-                Object o = myClass.newInstance();
+                @SuppressWarnings("deprecation")
+				Object o = myClass.newInstance();
                 if (((Loadable)o).start()) System.out.println("Module started");
                 else System.err.println("Module failed to start");
             }

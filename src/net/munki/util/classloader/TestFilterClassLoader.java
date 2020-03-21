@@ -9,10 +9,6 @@
 
 package net.munki.util.classloader;
 
-import net.munki.util.classloader.FilterClassLoader;
-import net.munki.util.classloader.Filter;
-import net.munki.util.classloader.VanillaFilter;
-
 public class TestFilterClassLoader {
 
     private String base;
@@ -50,7 +46,8 @@ public class TestFilterClassLoader {
             TestFilterClassLoader tcl = new TestFilterClassLoader(base);
             @SuppressWarnings("rawtypes")
 			Class myClass = tcl.load(classToLoad);
-            Object o = myClass.newInstance();
+            @SuppressWarnings("deprecation")
+			Object o = myClass.newInstance();
             if (((Loadable)o).start()) System.out.println("Module started");
             else System.err.println("Module failed to start");
         }
